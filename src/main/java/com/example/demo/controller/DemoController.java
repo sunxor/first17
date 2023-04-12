@@ -26,7 +26,7 @@ public class DemoController {
                 response = String.valueOf(d);
             }
 
-            default -> throw new IllegalStateException("Unexpected value: " + attr);
+            default -> throw new IllegalStateException("Unexpected err: " + attr);
         }
         return ResponseEntity.ok(response);
     }
