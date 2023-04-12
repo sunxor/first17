@@ -17,7 +17,10 @@ public class DemoController {
             case null, String s -> {
                 log.info("Value - {}", s);
             }
-            case Integer i -> String.valueOf(i);
+            case Integer i -> {
+                String.valueOf(i);
+            }
+            case Double d -> String.valueOf(d);
             default -> throw new IllegalStateException("Unexpected value: " + attr);
         }
         return ResponseEntity.ok(attr.toString());
