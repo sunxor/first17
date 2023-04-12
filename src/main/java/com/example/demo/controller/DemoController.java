@@ -12,17 +12,22 @@ public class DemoController {
 
     @GetMapping
     public ResponseEntity<String> getValue(@RequestParam(required = true, value = "attr") Object attr,
-                                           @RequestParam(required = true, value = "attr") Object attr1) {
+                                           @RequestParam(required = true, value = "attr1") Object attr1) {
+        String response = null;
         switch (attr) {
             case null, String s -> {
                 log.info("Value - {}", s);
+                response = s;
             }
             case Integer i -> {
-                String.valueOf(i);
+                response = String.valueOf(i);
             }
-            case Double d -> String.valueOf(d);
+            case Double d -> {
+                response = String.valueOf(d);
+            }
+
             default -> throw new IllegalStateException("Unexpected value: " + attr);
         }
-        return ResponseEntity.ok(attr.toString());
+        return ResponseEntity.ok(response);
     }
 }
