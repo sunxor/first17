@@ -21,7 +21,7 @@ public class DemoController {
                 String.valueOf(i);
             }
             case Double d -> String.valueOf(d);
-            default -> throw new IllegalStateException("Unexpected value: " + attr);
+            default -> throw new IllegalStateException("Unexpected err: " + attr);
         }
         return ResponseEntity.ok(attr.toString());
     }
